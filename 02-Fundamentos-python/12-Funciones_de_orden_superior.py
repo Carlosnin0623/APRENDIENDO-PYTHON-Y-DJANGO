@@ -1,0 +1,21 @@
+""" 
+Que es un funcion de orden superior (HOF): Es una funcion que recibe otra
+función como argumento
+"""
+
+def required_auth(func):
+    def wrapper(user):
+        if user.lower() == "admin":
+            return func(user)
+        else:
+            return "Acceso denegado"
+    return wrapper
+
+def admin_dashboard(user):
+    return f"Bienvenido al panel, {user}"
+
+
+auth_view_dashboard = required_auth(admin_dashboard)
+
+print(auth_view_dashboard('admin'))
+print(auth_view_dashboard('invitado'))

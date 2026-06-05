@@ -1,6 +1,6 @@
 
 
-# El ciclo for es recomandable usarlo cuando lo que vas a iterar tiene un fin
+# El ciclo for es recomandado usarlo cuando los elementos que vas a iterar tiene un fin
 # o sabes el número de elementos que se va a iterar
 
 """ 
