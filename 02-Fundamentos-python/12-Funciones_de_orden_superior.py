@@ -19,3 +19,14 @@ auth_view_dashboard = required_auth(admin_dashboard)
 
 print(auth_view_dashboard('admin'))
 print(auth_view_dashboard('invitado'))
+
+
+
+
+def autenticacion(fn):
+    def wrapper(user):
+        if user.lower() == 'admin':
+            return fn(user)
+        else:
+            return "Acceso Denegado"
+    return wrapper

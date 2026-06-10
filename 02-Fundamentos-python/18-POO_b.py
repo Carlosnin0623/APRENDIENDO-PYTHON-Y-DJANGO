@@ -2,8 +2,6 @@
 
 from abc import ABC, abstractmethod
 
-
-
 class BankAccount(ABC):
     
     def __init__(self, owner,initial_balance):
@@ -22,8 +20,8 @@ class BankAccount(ABC):
     def _get_balance(self):
         return self.__balance
     
-    def _set_balanc(self, new_balance):
-        self.__balance += new_balance
+    def _set_balance(self, new_balance):
+        self.__balance = new_balance
     
     @abstractmethod # Esto se llama polimorfismo es decir que este metodo puede ser modificado por clases hijas
     def withdraw(self, amount):
@@ -32,15 +30,39 @@ class BankAccount(ABC):
 
     def check_balance(self):
         return f"Saldo actual: ${self.__balance}"
-           
-            
-            
-account = BankAccount('Ricardo', 1000) # Abstracción
+               
+class SavingAccount(BankAccount): # Herencia
+    
+    def withdraw(self, amount):
+        penalty = amount * 0.05
+        total = amount + penalty
+        
+        if total <= self._get_balance():
+            self._set_balance(self._get_balance() - total)
+        else:
+            print('Fondos insuficientes en la cuenta de ahorro')
+        
+        
+class PayrollAccount(BankAccount): # Herencia
+    
+    def withdraw(self, amount):
+        if amount <= self._get_balance():
+            self._set_balance(self._get_balance() - amount)
+        else:
+            print('Fondos insuficientes en la cuenta de nómina')  
 
-account.deposit(500)
 
-account.withdraw(700)
+# cuenta de ahorro
 
-print(account.check_balance())
+savings = SavingAccount('Ricardo',1000)
+
+savings.withdraw(100)
+
+print("Cuenta de ahorro", savings.check_balance())
+
+# cuenta de pago
+payroll = PayrollAccount('Ricardo', 1000)
+payroll.withdraw(100)
+print("Cuenta de nómina", payroll.check_balance())
 
 
