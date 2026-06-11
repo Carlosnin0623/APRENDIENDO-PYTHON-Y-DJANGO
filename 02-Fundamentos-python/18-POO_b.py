@@ -23,7 +23,7 @@ class BankAccount(ABC):
     def _set_balance(self, new_balance):
         self.__balance = new_balance
     
-    @abstractmethod # Esto se llama polimorfismo es decir que este metodo puede ser modificado por clases hijas
+    @abstractmethod # Esto se llama polimorfismo es decir que este método puede ser modificado por clases hijas
     def withdraw(self, amount):
        pass
    
