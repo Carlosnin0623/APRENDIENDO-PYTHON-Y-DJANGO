@@ -1,0 +1,26 @@
+Instalando Django en un entorno Virtual en windows 
+
+1- Accedemos a la carpeta donde queremo crear el entorno virtual.
+2- Creamos el entorno virtual con este comando: python -m venv venv
+3- Activamos en entorno virutal con este comando: venv\Scripts\activate
+4- Instalamos Django con el comando: pip install django
+5- Luego crear el archivo requirements con el siguiente comando pip freeze > requirements.txt
+6- ver el contenido que tengo en el archivo requirements.txt usando: type requirements.txt
+
+¿Para qué sirve requirements.txt?
+
+El archivo requirements.txt guarda la lista de paquetes y sus versiones
+instaladas en el entorno virtual. Esto permite que otra persona,
+o tú mismo en otro equipo, puedas instalar exactamente las mismas 
+dependencias ejecutando:
+
+pip install -r requirements.txt
+
+7- Para comprobar que Django se instaló correctamente, podemos ejecutar: python -m django --version
+8- Para acceder al panel de administracion de django escribimos: django-admin
+
+ Formas de crear proyectos en Django
+1- Para crear proyectos para django usamos escribimos: django-admin startproject myproject.
+2- Otra forma es crear nosotros mismo una carpeta por ejemplo myproject2 y dentro de esa carpeta 
+escribimos lo siguiente: django-admin startproject config . ya con esto unicamente nosotros
+creara la carpeta config y el archivo manage.py dentro de la carpeta myproject2
