@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# Aqui es donde debemos agregar las apps que creamos
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'alumnos', # Instando la aplicacion alumnos en django
+    'cursos' # Instando la aplicacion cursos en django
 ]
 
 MIDDLEWARE = [
