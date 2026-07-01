@@ -25,7 +25,7 @@ print(_private_name)
 """ 
 Variables Constantes
 
-s una convención entre los desarrolladores de python, donde las variables
+Es una convención entre los desarrolladores de python, donde las variables
 que se consideran consantes deben escribirse en mayúsculas 
 con esto los programadores dejan saber que no esta permitido 
 cambiarle su valor a la variable.

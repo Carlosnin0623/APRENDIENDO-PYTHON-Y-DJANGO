@@ -1,5 +1,5 @@
 
-# Permite guardar una lista de elementos de forma ordenada
+# Las listas: Permiten guardar una lista de elementos de forma ordenada
 lista_numeros = [1,2,3,4,5]
 
 lista_textos = ['a','b','c','d']
@@ -20,7 +20,7 @@ numeros.append(4)
 
 print(numeros) # [1, 2, 3, 4]
 
-#extend(): Agrega varios elementos de otro iterable.
+#extend(): Permite externder una lista agregando elementos de otra lista
 
 numeros = [1, 2, 3]
 numeros.extend([4, 5, 6])
@@ -50,7 +50,7 @@ valor = numeros.pop()
 print(valor) # 30
 print(numeros) # [10, 20]
 
-# También puedes indicar el índice que se va a retornar y eliminar:
+# También puedes especificar el elemento que se desea eliminar mediante su indice:
 numeros = [10, 20, 30]
 
 valor = numeros.pop(0)
@@ -138,7 +138,7 @@ numeros = [1, 2, 3, 4]
 print(sum(numeros)) # 10
 
 
-#sorted(): Devuelve una nueva lista ordenada sin modificar la original.
+#sorted(): Devuelve una nueva lista ordenada de forma ascendete sin modificar la original.
 
 numeros = [5, 3, 1]
 
@@ -148,7 +148,7 @@ print(ordenados)# [1, 3, 5]
 
 print(numeros) # [5, 3, 1]
 
-#sorted(reverse=True): Devuelve una nueva lista desordenada sin modificar la original.
+#sorted(reverse=True): Devuelve una nueva lista de forma descendente sin modificar la original.
 
 numeros = [1, 3, 5]
 
