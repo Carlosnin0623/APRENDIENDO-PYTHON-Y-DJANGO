@@ -6,7 +6,26 @@
     <title>Hola mundo</title>
 </head>
 <body>
-    <h1>Hola mundo desde template</h1>
-    <h2>Nombre: {{ name }}</h2>
+
+    <!--Tag If en Django -->
+    {% if name == 'Ricardo' %}
+       <h1>!Hola, Profe!</h1>
+       <h2>Nombre: {{ name | upper }}</h2>
+    {% elif name == 'Fernando' %}
+       <h1>!Hola, Fernando!</h1>
+    {% else %}
+       <h1>!Hola, Invitado!</h1>
+    {% endif %}
+    <p>Edad: {{ age }}</p>
+    <p>Fecha: {{ today | date:"d/m/Y"}}</p>
+
+    <h3>Mi Lista de lenguajes favoritos son</h3>
+    <ul>
+      {% for lenguaje in stack %}
+        <li>{{lenguaje}}</li>
+      {% empty %}
+         <li>Lo siento, no hay elementos para mostrar.</li>
+      {% endfor %}
+    </ul>
 </body>
 </html>
