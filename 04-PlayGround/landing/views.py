@@ -11,5 +11,8 @@ def home(request):
         'name': 'Ricardo',
         'age': 28,
         'today': today,
-        'stack': ''
+        'stack': stack
     })
+    
+def stack_detail(request):
+    pass
