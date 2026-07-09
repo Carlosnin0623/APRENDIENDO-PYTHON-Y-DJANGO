@@ -21,8 +21,8 @@
 
     <h3>Mi Lista de lenguajes favoritos son</h3>
     <ul>
-      {% for lenguaje in stack %}
-        <li>{{lenguaje}}</li>
+      {% for tool in stack %}
+        <li><a href="{% url 'stack' tool.id %}">{{tool.name}}</a></li>
       {% empty %}
         <li>Lo siento, no hay elementos para mostrar.</li>
       {% endfor %}
