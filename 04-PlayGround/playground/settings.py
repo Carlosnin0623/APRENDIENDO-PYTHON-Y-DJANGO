@@ -56,7 +56,12 @@ ROOT_URLCONF = 'playground.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / "templates"
+            # Esta es la carpeta templates que contiene el archivo base.html,
+            # de esta forma le decimos a djando que esta carpeta existe
+            # es muy importante tener registrda esta carpeta 
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

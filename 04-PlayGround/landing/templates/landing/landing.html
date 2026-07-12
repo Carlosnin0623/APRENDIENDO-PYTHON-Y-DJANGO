@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola mundo</title>
-</head>
-<body>
+{% extends "base.html" %} <!-- Con el tag extends podemos heredar una plantilla y luego nosotros decidimos que cambiara-->
+    
+{% block title  %}
+ Landing Page
+{% endblock  %}
 
-    <!--Tag If en Django -->
+
+{% block content %}
+<!--Tag If en Django -->
     {% if name == 'Ricardo' %}
        <h1>!Hola, Profe!</h1>
        <h2>Nombre: {{ name | upper }}</h2>
@@ -27,5 +26,5 @@
         <li>Lo siento, no hay elementos para mostrar.</li>
       {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock content %}
+
