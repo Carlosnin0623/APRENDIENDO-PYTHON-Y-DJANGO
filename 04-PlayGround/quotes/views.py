@@ -1,19 +1,24 @@
 # from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    list_item = ""
-    days = list(days_of_week.keys()) # [monday,tuesday,....]
+    
+    days_of_week_2 = [
+     {'id': 'monday', 'message': 'Pienso, Luego existo'},
+     {'id': 'tuesday', 'message': 'La vida es un sueño'},
+     {'id': 'wednesday', 'message': 'El conocimiento es poder'},
+     {'id': 'thursday', 'message': 'Sé el cambio que quieres ver'},
+     {'id': 'friday', 'message': 'Solo sé que no sé nada'},   
+     {'id': 'saturday', 'message': 'Vive como si fuera la último día'},
+     {'id': 'sunday', 'message': 'Da un poquito más todos los días'},    
+    ]
 
-    for day in days:
-        day_path = reverse("day-quote", args=[day])
-        list_item += f"<li><a href=\"{day_path}\">{day}</a></li>"
-    
-    response_html = f"<ul>{list_item}</ul>"
-    
-    return HttpResponse(response_html)
+    return render(request, 'quotes/quotes.html', {
+        'days' : days_of_week_2
+    })
 
 """ 
 def monday(request):
@@ -53,7 +58,4 @@ def days_week_with_number(request, day):
     redirect_path = reverse("day-quote", args=[redirect_day])
 
     return HttpResponseRedirect(redirect_path)
-    
-        
-        
     
