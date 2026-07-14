@@ -1,19 +1,23 @@
 {% extends "base.html" %}
  
-{% block title %}
-Pagina de Citas
-{% endblock title %}
+{% block title %} Listado de Quotes {% endblock title %}
 
 
 {% block content %}
-   <h1>Estos son los días de la semana: </h1>
+
+   <!-- con la etiqueta include ponemos incluir elementos html con su logica a cualquier otro archivo -->
+  {% include "../includes/partial.html" %}
+
     <ul>
-      {% for dias in days %}
-        <li><a href="{% url 'day-quote' dias.id %}">{{dias.id}}</a></li>
+      {% for dia in days %}
+        <li><a href="{% url 'day-quote' dia %}">{{dia}}</a></li>
       {% empty %}
         <li>Lo siento, no hay elementos para mostrar.</li>
       {% endfor %}
     </ul>
+
+    <!-- Se pueden pasar parametros dentro de los includes, pero solo las variables globales, en este caso days-->
+  {% include "../includes/endpartial.html" with days=days name="Ricardo" %}
 {% endblock %}
 
 

@@ -6,18 +6,10 @@ from django.shortcuts import render
 # Create your views here.
 def index(request):
     
-    days_of_week_2 = [
-     {'id': 'monday', 'message': 'Pienso, Luego existo'},
-     {'id': 'tuesday', 'message': 'La vida es un sueño'},
-     {'id': 'wednesday', 'message': 'El conocimiento es poder'},
-     {'id': 'thursday', 'message': 'Sé el cambio que quieres ver'},
-     {'id': 'friday', 'message': 'Solo sé que no sé nada'},   
-     {'id': 'saturday', 'message': 'Vive como si fuera la último día'},
-     {'id': 'sunday', 'message': 'Da un poquito más todos los días'},    
-    ]
+    days = list(days_of_week.keys())
 
     return render(request, 'quotes/quotes.html', {
-        'days' : days_of_week_2
+        "days": days
     })
 
 """ 
