@@ -57,7 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / "templates"
+            BASE_DIR / "templates",
             # Esta es la carpeta templates que contiene el archivo base.html,
             # de esta forma le decimos a djando que esta carpeta existe
             # es muy importante tener registrda esta carpeta 
@@ -121,4 +121,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
+# STATIC_URL: Se usa para detectar los archivos estaticos de las urls de las aplicaciones que creamos
+
 STATIC_URL = 'static/'
+
+# STATICFILES_DIRS Esto es necesario agregarlo para nuestra carpeta global de archivos estaticos, sin esto Django no reconoce la carpeta
+# o cualquier otra carpeta que queramos leer debes agregarla aqui
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]

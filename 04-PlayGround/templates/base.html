@@ -1,9 +1,15 @@
+{% load static %} <!-- Esta etiqueta nos permitira cargar los archivos estaticos -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
+    <!-- Esto es para los archivos estaticos que quieras leer desde la carpeta static del archivo raiz-->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+    <!-- Estos son los estilos staticos para las url de las aplicaciones que tengamos registradas -->
     {% block page_style %}{% endblock page_style %} <!-- aqui es donde se cargaran los estilos css -->
 </head>
 <body>
