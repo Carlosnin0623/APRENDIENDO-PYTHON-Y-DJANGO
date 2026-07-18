@@ -8,7 +8,7 @@ def index(request):
     
     days = list(days_of_week.keys())
 
-    return render(request, 'quotes/quotes.html', {
+    return render(request, 'quotes/index.html', {
         "days": days
     })
 

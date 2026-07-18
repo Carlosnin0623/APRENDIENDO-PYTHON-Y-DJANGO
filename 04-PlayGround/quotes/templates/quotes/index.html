@@ -1,7 +1,15 @@
 {% extends "base.html" %}
+
+{% load static %} <!-- Esta etiqueta le dice a Django que se van a cargar archivos estaticos como css o Javascript-->
  
 {% block title %} Listado de Quotes {% endblock title %}
 
+{% block page_style %}
+
+ <!-- Esto solo funciona si tenemos la etiqueta Load static agregada y recuerda reiniciar el servidor -->
+<link rel="stylesheet" href="{% static 'quotes/css/quotes_styles.css' %}">
+
+{% endblock page_style %}
 
 {% block content %}
 
