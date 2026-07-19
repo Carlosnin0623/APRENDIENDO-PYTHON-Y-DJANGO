@@ -1,7 +1,7 @@
 Instalando Django en un entorno Virtual en windows 
 
 1- Accedemos a la carpeta donde queremos crear el entorno virtual desde cmd o powershell.
-2- Creamos el entorno virtual con este comando desde el cmd o powershell: python -m venv venv
+2- Creamos el entorno virtual con este comando desde el cmd o powershell: python -m venv venv <- "Este es el nombre del entorno virtual puedes ponerle el que gustes".
 3- Activamos en entorno virutal con este comando: venv\Scripts\activate
 4- Instalamos Django con el comando: pip install django
 5- Luego crear el archivo requirements con el siguiente comando pip freeze > requirements.txt
@@ -23,7 +23,7 @@ pip install -r requirements.txt
 1- Para crear proyectos para django usamos escribimos: django-admin startproject myproject.
 2- Otra forma es crear nosotros mismo una carpeta por ejemplo myproject2 y dentro de esa carpeta 
 escribimos lo siguiente: django-admin startproject config . ya con esto unicamente nosotros
-creara la carpeta config y el archivo manage.py dentro de la carpeta myproject2
+creara la carpeta del proyecto llamada config y el archivo manage.py dentro de la carpeta myproject2
 
 
 Pasos para inicializar servidor de Django
