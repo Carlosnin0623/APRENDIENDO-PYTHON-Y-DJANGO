@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BLoque para que cada apps maneje su propio titulo -->
+    <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Bloque de estilos css para las apps -->
+    {% block custom_styles %} {% endblock custom_styles %}
+</head>
+
+<body>
+
+    <!-- Bloque de contentido-->
+    {% block content %} {% endblock content %}
+
+
+    <!-- Bloque de scripts -->
+    {% block scripts %} {% endblock scripts %}
+            
+</body>
+
+</html>

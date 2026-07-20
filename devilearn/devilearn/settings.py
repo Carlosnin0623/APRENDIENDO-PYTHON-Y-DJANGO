@@ -31,6 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+     # Asi agregamos las apps cuando la agrupamos dentro de un carpeta 
+     # y ve a la carpeta app de cada proyecto y ve la linea quye dice name
+    'apps.courses',
+    'apps.dashboard',
+    'apps.profiles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +59,9 @@ ROOT_URLCONF = 'devilearn.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates' # registrado mi carpeta template que tengo de forma global
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,3 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# registrado mi carpeta static que tengo de forma global para que django la reconozca
+
+STATICFILE_DIRS = [
+    BASE_DIR / 'static'
+]
