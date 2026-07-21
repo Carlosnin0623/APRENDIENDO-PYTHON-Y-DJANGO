@@ -123,8 +123,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# registrado mi carpeta static que tengo de forma global para que django la reconozca
+# STATICFILES_DIRS: Nos permite registrar mi carpeta static que tengo de forma global para que django la reconozca
 
-STATICFILE_DIRS = [
-    BASE_DIR / 'static'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
 ]

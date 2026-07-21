@@ -1,11 +1,9 @@
 {% extends 'base.html' %} <!-- Para agregar como plantilla base el archivo base.html -->
 
-{% load static %} <!-- Etiqueta para permitir entrar a la ruta de los archivos estaticos-->
-
+{% load static %} 
 
 {% block title %}Todos los cursos{% endblock title %}
     
-
 
 {% block custom_styles %} 
 
@@ -20,7 +18,7 @@
 
         <div class="sidebar">
             <div class="logo">
-                <img src="./images/devilearn.png" alt="Logo">
+                <img src="{% static 'images/devilearn.png' %}" alt="Logo">
             </div>
             <ul class="menu">
                 <li><a class="menu-option" href="index.html"><i
@@ -64,7 +62,7 @@
                             <!-- Card 1 -->
                             <div class="course-card">
                                 <a href="course_detail.html">
-                                    <img src="./images/curso_1.jpg" alt="Course Image" class="course-img" />
+                                    <img src="{% static 'images/curso_1.jpg' %}" alt="Course Image" class="course-img" />
                                     <div class="course-info">
                                         <div class="course-rating">
                                             <span class="tag beginner">Beginner</span>
@@ -87,7 +85,7 @@
                             <!-- Card 2 -->
                             <div class="course-card">
                                 <a href="course_detail.html">
-                                    <img src="./images/curso_2.jpg" alt="Course Image" class="course-img" />
+                                    <img src="{% static 'images/curso_2.jpg' %}" alt="Course Image" class="course-img" />
                                     <div class="course-info">
                                         <div class="course-rating">
                                             <span class="tag beginner">Beginner</span>
@@ -109,7 +107,7 @@
                             <!-- Card 3 -->
                             <div class="course-card">
                                 <a href="course_detail.html">
-                                    <img src="./images/curso_3.jpg" alt="Course Image" class="course-img" />
+                                    <img src="{% static 'images/curso_3.jpg' %}" alt="Course Image" class="course-img" />
                                     <div class="course-info">
                                         <div class="course-rating">
                                             <span class="tag beginner">Beginner</span>
@@ -133,7 +131,7 @@
                             <!-- Card 4 -->
                             <div class="course-card">
                                 <a href="course_detail.html">
-                                    <img src="./images/curso_4.jpg" alt="Course Image" class="course-img" />
+                                    <img src="{% static 'images/curso_4.jpg' %}" alt="Course Image" class="course-img" />
                                     <div class="course-info">
                                         <div class="course-rating">
                                             <span class="tag beginner">Beginner</span>
@@ -158,7 +156,7 @@
             </main>
         </div>
     </div>
-    <script src="./js/script.js"></script>
+    <script src="{% static '/js/script.js' %}"></script>
 
 {% endblock content %}
     
