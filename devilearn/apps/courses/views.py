@@ -17,9 +17,9 @@ def course_list(request):
 
         {
             'id': 2,
-            'level': 'Principiante',
-            'rating': 5.0,
-            'course_title': 'Beginner Guide to Successful Company Management:Business And More',
+            'level': 'Intermedio',
+            'rating': 4.9,
+            'course_title': 'Django: Aplicaciones robustas',
             'instructor': 'Patty Kutch',
             'course_image': 'images/curso_2.jpg',
             'instructor_image': 'https://randomuser.me/api/portraits/women/20.jpg'
@@ -27,9 +27,9 @@ def course_list(request):
 
         {
             'id': 3,
-            'level': 'Principiante',
+            'level': 'Avanzado',
             'rating': 5.0,
-            'course_title': 'A Fascinating Theory of Probability. Practice Application. How to Outplay...',
+            'course_title': 'Django Rest',
             'instructor': 'Alonzo Murray',
             'course_image': 'images/curso_3.jpg',
             'instructor_image': 'https://randomuser.me/api/portraits/men/32.jpg'
@@ -39,7 +39,7 @@ def course_list(request):
             'id': 4,
             'level': 'Principiante',
             'rating': 5.0,
-            'course_title': 'Introduction: Machine Learning and LLM. Implementation in Modern Software',
+            'course_title': 'Fast API',
             'instructor': 'Gregory Harris',
             'course_image': 'images/curso_4.jpg',
             'instructor_image': 'https://randomuser.me/api/portraits/men/45.jpg'
@@ -53,7 +53,7 @@ def course_list(request):
 
 
 def course_detail(request):
-    pass
+   return render(request, 'courses/courses_detail.html')
 
 
 def course_lessons(request):
