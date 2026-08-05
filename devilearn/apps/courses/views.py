@@ -53,7 +53,36 @@ def course_list(request):
 
 
 def course_detail(request):
-   return render(request, 'courses/courses_detail.html')
+   course = {
+       'course_title': 'Django Aplicaciones',
+       'couse_link': '',
+       'info_course': {
+           'lessons': 79,
+           'duration': 8,
+           'instructor': 'Ricardo Cuéllar'
+       },
+       'course_content':[
+           {
+               'id': 1,
+               'name': 'Introducción al curso',
+               'Lessons': [
+                   {
+                       'name': '¿Que aprenderás en el curso?',
+                       'type': 'video'
+                   },
+                   
+                   {
+                        'name': '¿Como usar la plataforma?',
+                        'type': 'article'
+                    },
+                   
+               ]
+           }
+       ]
+   }
+   return render(request, 'courses/courses_detail.html', {
+       'course': course
+   })
 
 
 def course_lessons(request):
