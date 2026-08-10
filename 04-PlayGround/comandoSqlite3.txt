@@ -1,0 +1,31 @@
+################# Instalar sqlite3 #####################
+1- Descargar sqlite3 en windows.
+2- Descomprimir los archivos de la carpeta descargada
+3- Crear una carpeta llamada sqlite3 en el disco C: y meter los archivos ahi dentro.
+4- Entrar a "Editar variables de entorno del sistema" y en el path agregar el archivo sqlite3.exe
+5- Ya con esto tendremos funcionando sqlite3 en windows.
+
+
+###### Ejecutar Sqlite3 ##########
+1- Dentro del proyecto de Djando tendremos una base de datos sqlite3 por defecto
+2- ponemos el siguiente comando sqlite3 seguido del nombre de la base de datos 
+ por ejemplo sqlite3 db.Sqlite3 y  nos debe aparecer algo como esto
+
+SQLite version 3.53.4 2026-07-24 19:02:57
+Enter ".help" for usage hints.
+sqlite> 
+
+Comandos sqlite> 
+
+sqlite> .tables "Para ver las tablas de la base de datos".
+sqlite> .exit "Este comando es para salir de sqlite3".
+
+# Crear una table en sqlite3
+create table author (
+id integer PRIMARY KEY, 
+name varchar(100) not null,
+birth_date date
+);
+
+# Ver el contenido de esta tabla 
+select * from author;
