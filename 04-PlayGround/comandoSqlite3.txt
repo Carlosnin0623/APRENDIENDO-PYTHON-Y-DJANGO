@@ -29,3 +29,125 @@ birth_date date
 
 # Ver el contenido de esta tabla 
 select * from author;
+
+/* Comandos para migraciones a sqlite3 dentro de un proyecto de Django */
+
+1- Entrar al proyecto
+2- Ejecutar las migraciones: usa este comando python manage.py migrate. Este comando nos creará las tablas por defecto
+y configuraciones iniciales del proyecto, como por ejemplo el panel de administracion de Django.
+
+3- una vez creados los modelos y su relacion por ejemplo:
+
+from django.db import models
+
+# Create your models here.
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+    birth_date = models.DateField(null= True, blank=True)
+
+
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    publication_date = models.DateField(null=True, blank=True)
+    author = models.ForeignKey(Author, on_delete= models.CASCADE, related_name="books")
+    pages = models.IntegerField()
+    isbn = models.CharField(max_length=50)
+
+Debes ejecutar el siguiente comando ->  python manage.py makemigrations minilibrary -- poner siempre el nombre de la aplicacion
+-- Esto nos dara un preview de como se crearian los campos y relaciones en la base de datos
+antes de crearla.
+
+
+Luego tenemos el siguiete comando -> python manage.py showmigrations, esto es para ver cuales aplicaciones
+faltan por realizar las migracione y cual todavia no tienen migraciones. las que tiene X son las que
+ya estan bien si hay de esta forma [] 0001_initial significa que todavia no se ha creado en la base de datos.
+
+admin
+ [X] 0001_initial
+ [X] 0002_logentry_remove_auto_add
+ [X] 0003_logentry_add_action_flag_choices
+auth
+ [X] 0001_initial
+ [X] 0002_alter_permission_name_max_length
+ [X] 0003_alter_user_email_max_length
+ [X] 0004_alter_user_username_opts
+ [X] 0005_alter_user_last_login_null
+ [X] 0006_require_contenttypes_0002
+ [X] 0007_alter_validators_add_error_messages
+ [X] 0008_alter_user_username_max_length
+ [X] 0009_alter_user_last_name_max_length
+ [X] 0010_alter_group_name_max_length
+ [X] 0011_update_proxy_permissions
+ [X] 0012_alter_user_first_name_max_length
+
+ landing
+ (no migrations)
+minilibrary
+ [ ] 0001_initial
+quotes
+ (no migrations)
+sessions
+ [X] 0001_initial
+
+
+-- Una vez hayas visto que todo esta bien, hayas verificado cuales migraciones estan
+y cuales faltan por realizar entonces para realizarlas ejecuta el siguiente comando
+
+-> python manage.py migrate
+
+
+-- Ahora nuevamente ejecuta este comando -> python manage.py showmigrations para ver si ya 
+se realizo la migracion correctamente.
+
+admin
+ [X] 0001_initial
+ [X] 0002_logentry_remove_auto_add
+ [X] 0003_logentry_add_action_flag_choices
+auth
+ [X] 0001_initial
+ [X] 0002_alter_permission_name_max_length
+ [X] 0003_alter_user_email_max_length
+ [X] 0004_alter_user_username_opts
+ [X] 0005_alter_user_last_login_null
+ [X] 0006_require_contenttypes_0002
+ [X] 0007_alter_validators_add_error_messages
+ [X] 0008_alter_user_username_max_length
+ [X] 0009_alter_user_last_name_max_length
+ [X] 0010_alter_group_name_max_length
+ [X] 0011_update_proxy_permissions
+ [X] 0012_alter_user_first_name_max_length
+contenttypes
+ [X] 0001_initial
+ [X] 0002_remove_content_type_name
+landing
+ (no migrations)
+minilibrary
+ [X] 0001_initial
+quotes
+ (no migrations)
+sessions
+ [X] 0001_initial
+
+
+----- Django Shell
+
+Para acceder a la terminal de Django debemos ejecutar el siguiente comando
+ -> python manage.py shell, si todo esta bien debe aparecer algo como esto
+
+ 14 objects imported automatically (use -v 2 for details).
+
+Ctrl click to launch VS Code Native REPL
+Python 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+
+>>> from minilibrary.models import Author, Book
+>>> orwell = Author.objects.create(name="George Orwell",birth_date="1903-06-25")
+>>> Book.objects.create(title="1984", publication_date="1949-06-08",author=orwell,pages=300,isbn="123456789")
+<Book: Book object (1)>
+>>> Book.objects.all()
+<QuerySet [<Book: Book object (1)>]>
+>>> Book.objects.filter(author__name="George Orwell")
+<QuerySet [<Book: Book object (1)>]>
+>>> 
+
