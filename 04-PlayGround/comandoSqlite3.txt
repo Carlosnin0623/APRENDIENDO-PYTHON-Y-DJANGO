@@ -33,10 +33,11 @@ select * from author;
 /* Comandos para migraciones a sqlite3 dentro de un proyecto de Django */
 
 1- Entrar al proyecto
-2- Ejecutar las migraciones: usa este comando python manage.py migrate. Este comando nos creará las tablas por defecto
+2- Ejecutar las migraciones: usa este comando python manage.py migrate, este comando nos creará las tablas por defecto
 y configuraciones iniciales del proyecto, como por ejemplo el panel de administracion de Django.
 
-3- una vez creados los modelos y su relacion por ejemplo:
+3- Los modelos deben ser creados dentro de la carpeta model de cada aplicacion en este
+caso estaremos usando la carpeta model de la aplicacion minilibrary:
 
 from django.db import models
 
@@ -150,4 +151,27 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> Book.objects.filter(author__name="George Orwell")
 <QuerySet [<Book: Book object (1)>]>
 >>> 
+
+-- Instalar ipython -> pip install ipython
+
+Esta libreria se instala para trabajar de forma mas linda, las consultas
+con el ORM de Django , luego ejecutar  python manage.py shell
+
+Python 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 9.16.1 -- An enhanced Interactive Python. Type '?' for help.
+Tip: IPython 9.0+ has hooks to integrate AI/LLM completions.
+Ctrl click to launch VS Code Native REPL
+
+In [1]: from minilibrary.models import Author, Book
+
+1- Primero importar el modelo y las clases que vas a trabajar
+
+  In [1]: from minilibrary.models import Author, Book
+
+2- Crear Registro a una base de datos usando el ORM - Forma Directa
+
+
+
+
 
